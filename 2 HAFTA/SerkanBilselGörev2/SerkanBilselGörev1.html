@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kişisel Tişört Siparişi</title>
+<style>
+    table#siparisTable,
+    table#siparisTable th,
+    table#siparisTable td {
+      border: 1px solid black;
+      
+    }
+
+    table#siparisTable {
+      background-color: rgb(247, 247, 106);
+    }
+</style>
+</head>
+<body>
+
+<h1>Kişiye Özel Tişört Siparişi Aracı</h1>
+<hr>
+<p>Lütfen oluşturmak istediğiniz siparişe ilişkin aşağıdaki bilgileri doldurunuz:</p>
+<form id="orderForm">
+  <h2>Kişisel Bilgiler</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="name">Adınız:</label></td>
+        <td><input type="text" id="name" name="name" /></td>
+      </tr>
+      <tr>
+        <td><label for="surname">Soyadınız:</label></td>
+        <td><input type="text" id="surname" name="surname" /></td>
+      </tr>
+      <tr>
+        <td><label for="birthDate">Doğum Tarihiniz:</label></td>
+        <td><input type="date" id="birthDate" name="birthDate" /></td>
+      </tr>
+      <tr>
+        <td><label for="email">Mail adresiniz:</label></td>
+        <td><input type="email" id="email" name="email" /></td>
+      </tr>
+      <tr>
+        <td><label for="phone">Telefon:</label></td>
+        <td><input type="tel" id="phone" name="phone" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h2>Sipariş Bilgileri</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="color">Tişört Rengi :</label></td>
+        <td><input type="color" id="color" name="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="textColor">Yazı Rengi :</label></td>
+        <td><input type="color" id="textColor" name="textColor" /></td>
+      </tr>
+      <tr>
+        <td><label for="tshirttext">Tişört üzerinde yazacak yazıyı Girin :</label></td>
+        <td><input type="text" id="tshirttext" name="tshirttext" /></td>
+      </tr>
+      <tr>
+        <td><label for="tshirtcount">Tişört Adeti :</label></td>
+        <td><input type="text" id="tshirtcount" name="tshirtcount" /></td>
+      </tr>
+      <tr>
+        <td><label for="range">Beden Seçiniz:</label></td>
+        <td>
+          <input
+            type="range"
+            id="range"
+            name="range"
+            min="0"
+            max="5"
+            step="1"
+            list="steplist"
+          />
+          <datalist id="steplist">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </datalist>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" onclick="secClick()">Seç</button>
+          <input type="text" id="beden" name="beden" disabled />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Teslimat Bilgileri</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="teslimat">Ad Soyad :</label></td>
+        <td><input type="text" id="teslimat" name="teslimat" /></td>
+      </tr>
+      <tr>
+        <td><label for="teslimatTarihi">Teslimat Tarihi:</label></td>
+        <td><input type="datetime-local" id="teslimatTarihi" name="teslimatTarihi" required></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Ödeme Bilgileri</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="kartSahibi">Adı Soyadı:</label></td>
+        <td><input type="text" id="kartSahibi" name="kartSahibi" required></td>
+      </tr>
+      <tr>
+        <td><label for="kartNo">Kart Numarası:</label></td>
+        <td><input type="text" id="kartNo" name="kartNo" required></td>
+      </tr>
+      <tr>
+        <td><label for="sonKullanmaTarihi">Son Kullanma Tarihi:</label></td>
+        <td><input type="text" id="sonKullanmaTarihi" name="sonKullanmaTarihi" placeholder="AA/YY" required></td>
+      </tr>
+      <tr>
+        <td><label for="cvv">CVV:</label></td>
+        <td><input type="text" id="cvv" name="cvv" required></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" onclick="gonder()">Onayla</button>
+</form>
+
+<hr>
+
+<table id="siparisTable">
+  <thead>
+    <tr>
+      <th colspan="3">SIPARIŞ ONAY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <th>Kişisel Bilgiler</th>
+    <tr>
+      
+      <td>Ad:</td>
+      <td><input type="text" id="tname" disabled /></td>
+    </tr>
+    <tr>
+      <td>Soyad:</td>
+      <td><input type="text" id="tsurname" disabled /></td>
+    </tr>
+    <tr>
+      <td>Doğum Tarihi:</td>
+      <td><input type="text" id="tbirthDate" disabled /></td>
+    </tr>
+    <tr>
+      <td>Mail Adresi :</td>
+      <td><input type="text" id="tMail" disabled /></td>
+    </tr>
+    <tr>
+      <td>Telefon :</td>
+      <td><input type="text" id="tTelefon" disabled /></td>
+    </tr>
+  </tbody>  
+  <tbody>
+    <th>Sipariş Bilgileri</th>
+    <tr>
+    
+      <td>Tişört Rengi:</td>
+      <td><input type="text" id="tcolor" disabled /></td>
+    </tr>
+    <tr>
+      <td>Yazı Rengi:</td>
+      <td><input type="text" id="ttextColor" disabled /></td>
+    </tr>
+    <tr>
+      <td>Tişört Adeti:</td>
+      <td><input type="text" id="ttshirtcount" disabled /></td>
+    </tr>
+    <tr>
+      <td>Tişört Bedeni:</td>
+      <td><input type="text" id="tbeden" disabled /></td>
+    </tr>
+  </tbody>  
+  <tbody>
+    <th>Teslimat Bilgileri</th>
+    <tr>
+   
+      <td>Adres:</td>
+      <td><input type="text" id="tAdres" disabled /></td>
+    </tr>
+    <tr>
+      <td>Teslim Tarihi:</td>
+      <td><input type="text" id="tteslimatTarihi" disabled /></td>
+    </tr>
+  </tbody>  
+  <tbody>
+    <th>Ödeme Bilgileri</th>
+    <tr>
+     
+      <td>Ad Soyad:</td>
+      <td><input type="text" id="tkartSahibi" disabled /></td>
+    </tr>
+    <tr>
+      <td>Kart Numarası:</td>
+      <td><input type="text" id="tkartNo" disabled /></td>
+    </tr>
+    <tr>
+      <td>Son Kullanma Tarihi:</td>
+      <td><input type="text" id="tsonKullanmaTarihi" disabled /></td>
+    </tr>
+    <tr>
+      <td>CVV:</td>
+      <td><input type="text" id="tCVV" disabled /></td>
+    </tr>
+  </tbody>  
+</table>
+
+<script>
+function gonder() {
+  // Kişisel Bilgiler
+  var name = document.getElementById("name").value;
+  var surname = document.getElementById("surname").value;
+  var birthDate = document.getElementById("birthDate").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+
+  // Sipariş Bilgileri
+  var color = document.getElementById("color").value;
+  var textColor = document.getElementById("textColor").value;
+  var tshirttext = document.getElementById("tshirttext").value;
+  var tshirtcount = document.getElementById("tshirtcount").value;
+  var beden = document.getElementById("beden").value;
+
+  // Teslimat Bilgileri
+  var teslimat = document.getElementById("teslimat").value;
+  var teslimatTarihi = document.getElementById("teslimatTarihi").value;
+
+  // Ödeme Bilgileri
+  var kartSahibi = document.getElementById("kartSahibi").value;
+  var kartNo = document.getElementById("kartNo").value;
+  var sonKullanmaTarihi = document.getElementById("sonKullanmaTarihi").value;
+  var cvv = document.getElementById("cvv").value;
+
+  // Sipariş Onay Tablosuna Bilgileri Eklemek
+  document.getElementById("tname").value = name;
+  document.getElementById("tsurname").value = surname;
+  document.getElementById("tbirthDate").value = birthDate;
+  document.getElementById("tMail").value = email;
+  document.getElementById("tTelefon").value = phone;
+
+  document.getElementById("tcolor").value = color;
+  document.getElementById("ttextColor").value = textColor;
+  document.getElementById("ttshirtcount").value = tshirtcount;
+  document.getElementById("tbeden").value = beden;
+
+  document.getElementById("tAdres").value = teslimat;
+  document.getElementById("tteslimatTarihi").value = teslimatTarihi;
+
+  document.getElementById("tkartSahibi").value = kartSahibi;
+  document.getElementById("tkartNo").value = kartNo;
+  document.getElementById("tsonKullanmaTarihi").value = sonKullanmaTarihi;
+  document.getElementById("tCVV").value = cvv;
+}
+
+function secClick() {
+  var range = document.getElementById("range").value;
+  var bedenInput = document.getElementById("beden");
+  bedenInput.value = range;
+}
+</script>
+</body>
+</html>
