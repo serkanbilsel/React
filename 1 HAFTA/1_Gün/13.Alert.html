@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="mybtn" onclick="virusControl()">Virüs kontrol et </button>
+
+    <script>
+        function virusControl()
+        {
+            var mybtn= document.getElementById("myBtn");
+            myBtn.TextContent = "Kontrol ediliyor..";
+
+            setTimeout(function ()
+            {
+                alert("Virüs Bulundu!");
+                myBtn.TextContent = "Virüs kontrol et ";
+            },3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="gonder(event)">
+      <h1>Sipariş Bilgileri</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="color">Tişört rengi:</label></td>
+            <td><input type="color" id="color" name="color" /></td>
+          </tr>
+          <tr>
+            <td><label for="range">Beden Seçiniz:</label></td>
+            <td>
+              <input
+                type="range"
+                id="range"
+                name="range"
+                min="0"
+                max="5"
+                step="1"
+                list="steplist"
+              />
+              <datalist id="steplist">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </datalist>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" onclick="secClick()">Seç</button>
+              <input type="text" id="beden" name="beden" disabled />
+            </td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Gönder" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <h1 id="sonuc"></h1>
+    <script>
+      function secClick() {
+        const range = document.getElementById("range");
+        const beden = document.getElementById("beden");
+        const bedenler = ["XS", "S", "M", "L", "XL", "XXL"];
+        beden.value = bedenler[range.value];
+      }
+
+      function gonder(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        const color = data.color;
+        const range = data.range;
+        const beden = document.getElementById("beden").value;
+        document.getElementById(
+          "sonuc"
+        ).innerText = `Renk: ${color}, beden: ${beden}`;
+      }
+    </script>
+  </body>
+</html>

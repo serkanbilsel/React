@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="gonder(event)">
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="tahmin">1. tahimini girin:</label></td>
+            <td><input type="number" id="tahmin" name="tahmin" /></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Tahmin yap" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <h1 id="sonuc"></h1>
+
+    <script>
+      function gonder(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        const tahmin = parseInt(data.tahmin);
+        const rastgele = Math.floor(Math.random() * 10) + 1;
+        if (tahmin == rastgele) {
+          document.getElementById("sonuc").textContent = "Tebrikler, bildiniz!";
+        } else {
+          document.getElementById(
+            "sonuc"
+          ).textContent = `Üzgünüm, doğru cevap ${rastgele}`;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Hesaplama</title>
+</head>
+<body>
+    <input type="text" placeholder="Vize Notu" id="vize" />
+    <input type="text" placeholder="Final Notu" id="final" />
+    <button onclick="hesapla()">Hesapla</button>
+    <h1 id="ortalama"></h1>
+    <h1 id="harfNotu"></h1>
+    <h1 id="gectiMi"></h1>
+
+    <script>
+        function hesapla() {
+            var vizeNotu = parseFloat(document.getElementById('vize').value);
+            var finalNotu = parseFloat(document.getElementById('final').value);
+
+          
+
+          
+            var toplamNot = vizeNotu * 0.3 + finalNotu * 0.7;
+            var harfNotu = "";
+
+            if (toplamNot >= 84) {
+                harfNotu = "AA";
+            } else if (toplamNot >= 77) {
+                harfNotu = "AB";
+            } else if (toplamNot >= 71) {
+                harfNotu = "BA";
+            } else if (toplamNot >= 66) {
+                harfNotu = "BB";
+            } else if (toplamNot >= 61) {
+                harfNotu = "BC";
+            } else if (toplamNot >= 56) {
+                harfNotu = "CB";
+            } else if (toplamNot >= 50) {
+                harfNotu = "CC";
+            } else if (toplamNot >= 46) {
+                harfNotu = "CD";
+            } else if (toplamNot >= 40) {
+                harfNotu = "DC";
+            } else if (toplamNot >= 33) {
+                harfNotu = "DD";
+            } else {
+                harfNotu = "FF";
+            }
+
+            var gectiMi = toplamNot >= 50 ? "Geçti" : "Kaldı";
+
+            document.getElementById('ortalama').innerText = "Ortalama: " + toplamNot.toFixed(2);
+            document.getElementById('harfNotu').innerText = "Harf Notu: " + harfNotu;
+            document.getElementById('gectiMi').innerText = "Geçti mi: " + gectiMi;
+        }
+    </script>
+</body>
+</html>

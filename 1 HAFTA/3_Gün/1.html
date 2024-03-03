@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="username" placeholder="Kullanıcı adı">
+    <input type="text" id="password" placeholder="Parola">
+    <button onclick="handleSubmit()">Gönder</button>
+
+    <h1 id="resultusername">Username</h1>
+    <h1 id="resultpassword">Password</h1>
+
+<script>
+    function handleSubmit()
+    {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        document.getElementById("resultusername").innerText = "Kullanıcı Adı: " + username;
+        document.getElementById("resultpassword").textContent = "Parola: " + password;
+    }
+
+    /*
+       function handleSubmit() {
+        const usernameEl = document.getElementById("username");
+        const passwordEl = document.getElementById("password");
+        const resultUsernameEl = document.getElementById("resultUsername");
+        const resultPasswordEl = document.getElementById("resultPassword");
+        resultUsernameEl.innerText = "Kullanıcı adı: " + usernameEl.value;
+        resultPasswordEl.innerText = "Parola: " + passwordEl.value;
+        */
+</script>
+
+</body>
+
+</body>
+</html>

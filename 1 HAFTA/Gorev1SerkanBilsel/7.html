@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ehliyet </title>
+</head>
+<body>
+<h1>Ehliyet</h1>
+<form id="ehliyetForm">
+  <label for="dogumYiliInput">Doğum Yılını:</label>
+  <input type="number" id="dogumYiliInput" name="dogumYiliInput" required><br><br>
+  <button type="button" onclick="hesapla()">Hesapla</button>
+</form>
+<p id="sonuc"></p>
+
+<script>
+function hesapla() {
+  var dogumYili = document.getElementById("dogumYiliInput").value;
+
+  if (dogumYili === "") {
+    alert("Bilgilerinizi kontrol ediniz.");
+    return;
+  }
+
+  var yas = new Date().getFullYear() - parseInt(dogumYili);
+
+  if (yas >= 17) {
+    document.getElementById("sonuc").innerText = "Ehliyet alabilir.";
+  } else {
+    document.getElementById("sonuc").innerText = "Ehliyet alamaz.";
+  }
+}
+</script>
+</body>
+</html>

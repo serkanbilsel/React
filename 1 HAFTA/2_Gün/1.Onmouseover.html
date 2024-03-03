@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            all:unset;
+            /*ayrı ayrı yazmak yerine all kullanılır*/
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 8px 16px;
+            background-color: dodgerblue;
+            color:white;
+            border-radius: 8px;
+        }
+        
+    </style>
+   
+</head>
+<body>
+    <button id="myBtn">Click me</button>
+    <script>
+        var myBtn = document.getElementById("myBtn");
+        myBtn.onmousever = function(){
+            myBtn.style.backgroundColor = "red";
+            myBtn.style.cursor = "pointer";
+        };
+        myBtn.onmouseout = function (){
+            myBtn.style.backgroundColor = "dodgerblue";
+            myBtn.style.cursor = "default";
+        };
+
+    </script>
+</body>
+</html>

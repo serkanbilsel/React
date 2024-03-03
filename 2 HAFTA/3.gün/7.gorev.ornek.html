@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kişisel Bilgileriniz</h1>
+    <form onsubmit="gonder(event)">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="name">Adınız:</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="surname">Soyadınız:</label></td>
+                <td><input type="text" id="surname" name="surname"></td>
+            </tr>
+            <tr>
+                <td><label for="birthDate">Doğum Tarihiniz:</label></td>
+                <td><input type="date" id="birthDate" name="birthDate"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Telefon:</label></td>
+                <td><input type="phone" id="phone" name="phone"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Gönder"></td>
+            </tr>
+        </tbody>
+    </table>
+<hr>
+ <table id="siparisTable">
+    <thead>
+        <tr>
+            <th colspan="3">SİPARİŞ ONAY</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5">Kişisel Bilgiler</td>
+            <td>Ad:</td>
+            <td><input type="text" id="name" disabled></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td rowspan="5">Soyad</td>
+           
+            <td><input type="text" id="surname" disabled></td>
+        </tr>
+    </tbody>
+
+
+ </table>
+</form>
+
+<script>
+    function gonder(event){
+        
+      
+           const form = event.target;
+           const formData = new FormData(form);
+           const data = Object.fromEntries(formData);
+
+           const name= data.name;
+           const surname = data.surname;
+           const birthDate = data.birthDate;
+           const email = data.email;
+           const phone = data.phone;
+          
+
+           document.getElementById("name").value = name;
+           document.getElementById("surname").value = surname;
+    }
+</script>
+</body>
+</html>

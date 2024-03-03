@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .input {
+        margin-block: 10px;
+      }
+      .error {
+        display: none;
+        color: tomato;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input">
+      <input type="text" id="name" placeholder="Isim" /> <br />
+      <span id="nameError" class="error">Isim giriniz</span>
+    </div>
+
+    <div class="input">
+      <input type="text" id="surname" placeholder="Soyisim" /><br />
+      <span id="surnameError" class="error">Soyisim giriniz</span>
+    </div>
+
+    <div class="button">
+      <button onclick="gonder()">Gönder</button>
+    </div>
+
+    <h1 id="result"></h1>
+
+    <script>
+      function gonder() {
+        const resultElement = document.getElementById("result");
+        const isim = document.getElementById("name").value;
+        const soyisim = document.getElementById("surname").value;
+        const isimHatasiElement = document.getElementById("nameError");
+        const soyisimHatasiElement = document.getElementById("surnameError");
+
+        let hasError = false;
+        if (isim == "") {
+          isimHatasiElement.style.display = "block";
+          hasError = true;
+        } else {
+          isimHatasiElement.style.display = "none";
+        }
+        if (soyisim == "") {
+          soyisimHatasiElement.style.display = "block";
+          hasError = true;
+        } else {
+          soyisimHatasiElement.style.display = "none";
+        }
+
+        if (hasError) {
+          return;
+        }
+        resultElement.innerText = "Gönderildi";
+      }
+    </script>
+  </body>
+</html>

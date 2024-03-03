@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="kilo" placeholder="Kilonuzu giriniz" />
+    <button onclick="hesapla()">Hesapla</button>
+    <button onclick="suIc()">Bir bardak su iç</button>
+    <h1 id="result"></h1>
+    <h1 id="icilenMiktar"></h1>
+    <h1 id="tamamlandiMi"></h1>
+
+    <script>
+      let icilenSuMiktarıMl = 0;
+      let ihtiyac = 0;
+      function suIc() {
+        icilenSuMiktarıMl += 200;
+        if (icilenSuMiktarıMl >= ihtiyac) {
+          document.getElementById("tamamlandiMi").innerText = "Tebrikler!";
+        }
+        document.getElementById("icilenMiktar").innerText =
+          "Icilen: " + icilenSuMiktarıMl + " ml";
+      }
+      function hesapla() {
+        const kilo = document.getElementById("kilo").value;
+        ihtiyac = kilo * 33;
+        document.getElementById("result").innerText =
+          "Günlük su ihtiyacınız: " + ihtiyac + " ml";
+      }
+
+      // Ihtiyac formulu = kilo * 0.033
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairenin Alanını ve Çevresini Hesapla</title>
+</head>
+<body>
+    <input type="text" placeholder="Dairenin yarıçapı" id="radius">
+    <button onclick="hesapla()">Hesapla</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function hesapla() {
+            var radius = parseFloat(document.getElementById('radius').value);
+            
+          
+           
+            var alan = Math.PI * radius * radius;
+            var cevre = 2 * Math.PI * radius;
+
+            document.getElementById('result').innerHTML =                                                        "Dairenin Çevresi: " + cevre.toFixed(2) + " birim";
+        }
+    </script>
+</body>
+</html>

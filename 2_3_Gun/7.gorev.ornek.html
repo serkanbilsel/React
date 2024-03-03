@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      table#siparisTable,
+      table#siparisTable th,
+      table#siparisTable td {
+        border: 1px solid black;
+      }
+
+      table#siparisTable {
+        background-color: lightyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="gonder(event)">
+      <h1>Kişisel Bilgiler</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="name">Adınız:</label></td>
+            <td><input type="text" id="name" name="name" /></td>
+          </tr>
+          <tr>
+            <td><label for="surname">Soyadınız:</label></td>
+            <td><input type="text" id="surname" name="surname" /></td>
+          </tr>
+          <tr>
+            <td><label for="birthDate">Doğum Tarihiniz:</label></td>
+            <td><input type="date" id="birthDate" name="birthDate" /></td>
+          </tr>
+          <tr>
+            <td><label for="email">Mail adresiniz:</label></td>
+            <td><input type="email" id="email" name="email" /></td>
+          </tr>
+          <tr>
+            <td><label for="phone">Telefon:</label></td>
+            <td><input type="tel" id="phone" name="phone" /></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Gönder" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+
+      <table id="siparisTable">
+        <thead>
+          <tr>
+            <th colspan="3">SIPARIŞ ONAY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th rowspan="5">Kişisel Bilgiler</th>
+            <td>Ad:</td>
+            <td><input type="text" id="tname" disabled /></td>
+          </tr>
+          <tr>
+            <td>Soyad:</td>
+            <td><input type="text" id="tsurname" disabled /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <script>
+      function gonder(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        const name = data.name;
+        const surname = data.surname;
+        const birthDate = data.birthDate;
+        const email = data.email;
+        const phone = data.phone;
+        document.getElementById("tname").value = name;
+        document.getElementById("tsurname").value = surname;
+      }
+    </script>
+  </body>
+</html>

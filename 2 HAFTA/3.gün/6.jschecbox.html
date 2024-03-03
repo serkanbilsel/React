@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="gonder(event)">
+     
+        <label for="name">Adınız</label>
+        <input type="text" id="name" name="swimming" placeholder="Adınız">
+        <h1>Cinsiyetiniz</h1>
+        <label for="hobby1">Yüzme</label>
+        <br>
+        <input type="checkbox" id="hobby1" name="reading" placeholder="Erkek" value="swimming">
+        <br>
+        <label for="hobby2">Kitap kuma</label>
+        <br>
+        <input type="checkbox" id="hobby2" name="hobby" placeholder="Erkek" value="reading">
+        <h1 id="sonuc"></h1>
+  
+<br>
+<br>
+<input type="submit" value="Gönder">
+    </form>
+
+    <script>
+          function gonder(event)
+        {
+            event.preventDefault();
+            alert("Form Gönderildi");
+           const form = event.target;
+           const formData = new FormData(form);
+           const data = Object.fromEntries(formData);
+          const name = data.name;
+          const gender = data.gender;
+           document.getElementById("sonuc").innerText = name;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<span>Lahmacun</span> 
+<button onclick="azalt()">-</button> 
+<span id="adet">0</span> 
+<button onclick="arttir()">+</button>
+<br>
+
+<button onclick="handleSubmit()">Sipariş et</button>
+<span>
+<h1 id="result">LAHMACUN ÇOKZEL</h1>
+</span>
+
+<script>
+    let adet = 0;
+
+    function azalt() {
+        adet = adet - 1;
+        document.getElementById("adet").innerText = adet;
+    }
+
+    function arttir() {
+        adet = adet + 1;
+        document.getElementById("adet").innerText = adet;
+    }
+
+    function handleSubmit() {
+        var result = document.getElementById("result");
+        result.innerText = `${adet}, "Lahmacun Sipariş edildi"`;
+    }
+</script>
+
+
+</body>
+</html>

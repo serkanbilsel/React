@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<input type="text" id="m" placeholder="Kütle">
+<input type="text" id="g" placeholder="Yer çekimi">
+<input type="text" id="h" placeholder="Yükseklik">
+<button onclick="handleSubmit()">Hesapla</button>
+<h1 id="result"></h1>
+
+
+
+
+<script>
+    function handleSubmit() {
+   
+        const m = document.getElementById("m").value;
+        const g = document.getElementById("g").value;
+        const h = document.getElementById("h").value;
+        const result = document.getElementById("result");
+
+        result.innerText= `Sonuç: ${m*g*h}`;
+  }
+  
+ 
+  </script>
+  
+</body>
+</html>

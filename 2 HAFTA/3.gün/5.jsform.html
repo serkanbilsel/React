@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="gonder(event)">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Name">
+        <br>
+        <br>    
+        <input type="submit" value="Gönder">
+        <h1 id="sonuc"></h1>
+    </form>
+
+    <script>
+        function gonder(event)
+        {
+            event.preventDefault();
+            alert("Form Gönderildi");
+           const form = event.target;
+           const formData = new FormData(form);
+           const data = Object.fromEntries(formData);
+           const name= data.name;
+           document.getElementById("sonuc").innerText = name;
+        }
+    </script>
+
+</body>
+</html>

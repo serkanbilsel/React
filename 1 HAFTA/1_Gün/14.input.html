@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="myInput" onkeyup="handleKeyUp(event)" placeholder="Adınızı giriniz">
+    <h1 id="myText">Adınız:</h1>
+
+    <script>
+       function handleKeyUp(event){
+        var key = event.key;
+        var myText = document.getElementById("myText");
+        myText.innerText += key;
+       }
+    </script>
+</body>
+</html>

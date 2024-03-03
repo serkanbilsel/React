@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p>
+    You are a necromancer and you came to Warriors and Adventure by accident world, you forget everything, only remember what your name is Serkan
+</p>    
+<hr>
+<hr>
+
+<p>Please assign your skill points: <span id="adet">8</span></p>
+<span>Güç</span>
+<button onclick="azalt()">-</button>
+<button id="guc">0</button>
+<button onclick="arttir()">+</button>
+<br>
+<br>
+
+<span>Yetenek</span>
+<button onclick="azalt()">-</button>
+<button id="yetenek">0</button>
+<button onclick="arttir()">+</button>
+<br>
+<br>
+
+<span>Mana</span>
+<button onclick="azalt()">-</button>
+<button id="mana">0</button>
+<button onclick="arttir()">+</button>
+<br>
+<br>
+
+<span>Atak</span>
+<button onclick="azalt()">-</button>
+<button id="atak">0</button>
+<button onclick="arttir()">+</button>
+<br>
+<br>
+
+<span>Defans</span>
+<button onclick="azalt()">-</button>
+<button id="defans">0</button>
+<button onclick="arttir()">+</button>
+<br>
+<br>
+
+<button onclick="gonder()">Onayla</button>
+<h1 id="sonuc"></h1>
+<p id="karakterOzelleri"></p>
+
+<script>
+    let adet = 8;
+    let guc = 0;
+    let yetenek = 0;
+    let mana = 0;
+    let atak = 0;
+    let defans = 0;
+
+    function azalt() {
+        if (guc > 0) {
+            guc -= 1;
+            adet += 1;
+            yetenek -= 1;
+            mana -= 1;
+            atak -= 1;
+            defans -= 1;
+
+            
+            document.getElementById("guc").innerText = guc;
+            document.getElementById("yetenek").innerText = yetenek;
+            document.getElementById("mana").innerText = mana;
+            document.getElementById("atak").innerText = atak;
+            document.getElementById("defans").innerText = defans;
+
+
+           document.getElementById("adet").innerText = adet;
+        }
+    }
+
+    function arttir() {
+        if (adet > 0) {
+            guc += 1;
+            yetenek += 1;
+            mana += 1;
+            atak += 1;
+            defans += 1;
+            adet -= 1;
+            document.getElementById("guc").innerText = guc;
+            document.getElementById("yetenek").innerText = yetenek;
+            document.getElementById("adet").innerText = adet;
+        }
+    }
+
+    function gonder() {
+        var sonuc = document.getElementById("sonuc");
+        var ozellikler = document.getElementById("karakterOzelleri").innerText;
+        sonuc.innerText = `Karakteriniz oluşturuldu. Özellikler: Güç: ${guc}, Yetenek: ${yetenek}, Mana: ${mana},Attack: ${atak},Defans: ${defans}`;
+    }
+</script>
+
+</script>
+
+</body>
+</html>

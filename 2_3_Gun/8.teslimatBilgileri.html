@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="gonder(event)">
+      <h1>Teslimat Bilgileri</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="adres">Adres:</label></td>
+            <td>
+              <textarea id="adres" name="adres" rows="1" cols="20"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="date">Tarih aralıgı:</label></td>
+            <td><input type="week" id="date" name="date" /></td>
+          </tr>
+          <tr>
+            <td><input type="submit" value="Gönder" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <h1 id="sonuc"></h1>
+    <script>
+      function gonder(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        const adres = data.adres;
+        const date = data.date;
+        document.getElementById("sonuc").innerText = adres + " " + date;
+      }
+    </script>
+  </body>
+</html>

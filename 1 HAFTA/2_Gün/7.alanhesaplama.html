@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan ve Çevre Hesaplama</title>
+</head>
+<body>
+    <h2>Üçgenin Çevresini Hesapla</h2>
+    <label for="kenar1">1. Kenar: </label>
+    <input type="text" id="kenar1"><br><br>
+
+    <label for="kenar2">2. Kenar: </label>
+    <input type="text" id="kenar2"><br><br>
+
+    <button onclick="hesapla()">Hesapla</button><br><br>
+
+    <p id="sonuc"></p>
+
+    <script>
+        function hesapla() {
+            var kenar1 = parseFloat(document.getElementById('kenar1').value);
+            var kenar2 = parseFloat(document.getElementById('kenar2').value);
+            
+           
+            if (isNaN(kenar1) || isNaN(kenar2)) {
+                alert("Lütfen sadece sayı giriniz!");
+                return;
+            }
+
+           
+            var cevre = kenar1 + kenar2;
+
+            document.getElementById('sonuc').innerHTML = "Alan: " + cevre + "m2";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kar Hesaplama</title>
+</head>
+<body>
+<h1>Kar Hesaplama</h1>
+<form id="karHesaplamaForm">
+  <label for="fiyatInput">Fiyat girin:</label>
+  <input type="number" id="fiyatInput" name="fiyatInput" required><br><br>
+  <label for="karOraniInput">Kar Oranı girin:</label>
+  <input type="number" id="karOraniInput" name="karOraniInput" required><br><br>
+  <button type="button" onclick="hesapla()">Hesapla</button>
+</form>
+<p id="sonuc"></p>
+
+<script>
+function hesapla() {
+  var fiyat = document.getElementById("fiyatInput").value;
+  var karOrani = document.getElementById("karOraniInput").value;
+
+ 
+  if (fiyat === "" || karOrani === "") {
+    alert("Bilgilerinizi kontrol ediniz.");
+    return;
+  }
+
+  
+  document.getElementById("sonuc").innerText = "Satış Fiyatı: " + (fiyat * (1 + karOrani / 100)).toFixed(2);
+
+}
+</script>
+</body>
+</html>

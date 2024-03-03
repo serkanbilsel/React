@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDV Hesaplama</title>
+</head>
+<body>
+    <input type="number" id="price" placeholder="Fiyat">
+    <button onclick="hesapla()">KDV'sini bul</button>
+    <h1 id="result"></h1>
+
+    <script>
+        function hesapla()
+        {
+            var price = Number(document.getElementById('price').value);
+                   
+            var kdvOrani = 18;
+            var kdvMiktari = (price * kdvOrani) / 100;
+
+            document.getElementById('result').innerHTML = "KDV " + kdvMiktari.toFixed(2) + " TL";
+        }
+    </script>
+</body>
+</html>
