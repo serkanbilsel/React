@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random numbersszzz</title>
+
+</head>
+<label for="min">Minimum Değer:</label>
+<br><input type="range" id="min" min="0" max="100" value="0">
+<button onclick="selectValue('min')">Seç</button>
+<span id="minValue" class="range-value">0</span>
+<br>
+<label for="max">Maksimum Değer:</label>
+<br>
+<input type="range" id="max" min="0" max="100" value="100">
+<button onclick="selectValue('max')">Seç</button>
+<span id="maxValue" class="range-value">100</span><br>
+<button onclick="generateRandomNumber()">Üret</button><br><br>
+<label id="randomNumberLabel"></label>
+
+<script>
+function selectValue(id) {
+    var value = document.getElementById(id).value;
+    document.getElementById(id + "Value").innerText = value;
+}
+
+function generateRandomNumber() {
+    var min = parseInt(document.getElementById("min").value);
+    var max = parseInt(document.getElementById("max").value);
+
+   
+    var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+   
+    document.getElementById("randomNumberLabel").innerText = "Rastgele Sayı: " + randomNumber;
+}
+</script>
+</body>
+</html>
