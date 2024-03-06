@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function verileriGetir(callback) {
+            fetch("https://jsonplaceholder.typicode.com/users").then((Response) => Response.json()).then((users) => { callback(users); });
+        }
+
+        verileriGetir(function (users) {
+            for (let i = 0; i < users.length; i++) {
+                document.write(users[i].name + "<br>");
+            }
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

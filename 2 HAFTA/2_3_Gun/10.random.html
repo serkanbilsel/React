@@ -28,7 +28,7 @@
         const form = event.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        const tahmin = parseInt(data.tahmin);
+        const tahmin = parseInt(data.tahmin); 
         const rastgele = Math.floor(Math.random() * 10) + 1;
         if (tahmin == rastgele) {
           document.getElementById("sonuc").textContent = "Tebrikler, bildiniz!";

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul"></ul>
+
+<script>
+
+    const uL = document.getElementById("ul");
+    const people = ["Serkan", "Hakkı", "Umut"]
+    const liArray = people.map((person) => {
+        return `<li>${person}</li>`;
+    });
+
+    ul.innerHTML = liArray.join("");
+</script>
+
+</body>
+</html>

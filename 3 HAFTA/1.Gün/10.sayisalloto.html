@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <td>
+                <tr><input type="text" id="isim" value="Serkan"></tr>
+                <tr> <input type="text" id="numara1" placeholder="numara1"></tr>
+                <tr> <input type="text" id="numara2" placeholder="numara2"></tr>
+                <tr><input type="text" id="numara3" placeholder="numara3"></tr>
+                <tr> <input type="text" id="numara4" placeholder="numara4"></tr>
+                <tr> <input type="text" id="numara5" placeholder="numara5"></tr>
+                <tr><input type="text" id="numara6" placeholder="numara6"></tr>
+
+            </td>
+        </thead>
+
+    </table>
+    <button onclick="kuponOlustur()">Kupon oluştur</button>
+    <button onclick="cekilisyap()">Çekiliş Yap</button>
+
+    <h1 id="kuponDurumu"></h1>
+    <h1 id="cikanNumaralar"></h1>
+    <h1 id="sonuc"></h1>
+
+
+    <script>
+        let kupon = null;
+        let numaralar = [];
+        function Kupon(isim, num1, num2, num3, num4, num5, num6) {
+            this.isim = isim;
+            this.num1 = num1;
+            this.num2 = num2;
+            this.num3 = num3;
+            this.num4 = num4;
+            this.num5 = num5;
+            this.num6 = num6;
+        }
+
+        function kuponOlustur() {
+            var isim = document.getElementById("isim").value;
+            var num1 = document.getElementById("numara1").value;
+            var num2 = document.getElementById("numara2").value;
+            var num3 = document.getElementById("numara3").value;
+            var num4 = document.getElementById("numara4").value;
+            var num5 = document.getElementById("numara5").value;
+            var num6 = document.getElementById("numara6").value;
+
+            kupon = new Kupon(isim, num1, num2, num3, num4, num5, num6);
+            document.getElementById("kuponDurumu").innerHTML = "Kupon Oluştu";
+        }
+
+        function cekilisyap() {
+            if (kupon === null) { alert("Önce kupon oluşturmalısın"); }
+
+
+            for (let i = 0; i < 6; i++) {
+                const cikanNumara = Math.floor(Math.random() * 98) + 1;
+                numaralar.push(cikanNumara);
+            }
+
+            document.getElementById("cikanNumaralar").innerHTML = "Çıkan Numaralar:" + numaralar;
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>isim</td>
+                <td>ağırlık</td>
+                <td>cinsiyet</td>
+              
+            </tr>
+        </thead>
+        <tbody id="container"> </tbody>
+    </table>
+    <script src="people.js"></script>
+    <script>
+        const container = document.getElementById("container");
+
+       const trElemanlari =  people.map((person) =>{
+            return ` 
+            <tr>
+            <td>${person.name}</td>
+            <td>${person.mass}</td>
+            <td>${person.gender}</td>
+        </tr>
+        `;
+        });
+
+        const trString = trElemanlari.join("");
+        container.innerHTML = trString;
+    </script>
+</body>
+</html>

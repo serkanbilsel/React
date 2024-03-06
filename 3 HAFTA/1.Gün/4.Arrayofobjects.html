@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Isim</th>
+                <th>Yaş</th>
+                <th>Meslek</th>
+            </tr>
+        </thead>
+        <tbody id="satirlar"></tbody>
+    </table>
+
+    <script>
+
+        function kisi(isim, yas, meslek) {
+            this.isim = isim;
+            this.yas = yas;
+            this.meslek = meslek;
+            this.bilgileriGoster = function () {
+                return this.isim + " " + this.yas + " " + this.meslek;
+            };
+        }
+
+
+        const kisiler = [
+            new kisi("Ali", 25, "Doktor"),
+            new kisi("Mustafa", 33, "Yazılım"),
+            new kisi("Hakkı", 46, "Amele"),
+
+        ];
+
+        const satirlar = document.getElementById("satirlar");
+
+        for (let i = 0; i < kisiler.length; i++) {
+            const kisi = kisiler[i];
+            const satir =
+                `<tr>
+                     <td>${kisi.isim}</td>
+                       <td>${kisi.yas}<//td>
+                       <td>${kisi.meslek}</td>
+                 </tr> `;
+
+
+            satirlar.innerHTML += satir;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

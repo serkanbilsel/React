@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function kisi(isim, yas, meslek)
+        {
+            this.isim = isim;
+            this.yas = yas;
+            this.meslek = meslek;
+            this.bilgileriGoster = function()
+            {
+                return this.isim + " " + this.yas + " " + this.meslek;
+            };
+        }
+            const ahmet = new kisi("Ahmet", 25, "Mühendis");
+            document.write(ahmet.bilgileriGoster());
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="people.js"></script>
+</head>
+
+<body>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>isim</th>
+                <th>ağırlık</th>
+                <th>cinsiyet</th>
+            </tr>
+        </thead>
+        <tbody id="container">
+
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const container = document.getElementById("container");
+        for (let i = 0; i < people.length; i++) {
+            const person = people[i];
+            container.innerHTML +=
+                `    
+         <tr>
+                 <td>${person.name}</td>
+                 <td>${person.mass}</td>
+                  <td>${person.gender}</td>
+         </tr> `;
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
