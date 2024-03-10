@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1'den 99'a kadar olan sayılar</title>
+</head>
+<body>
+    <p>1'den 99'a kadar olan sayıları for döngüsü ile yan yana <button id="sirala">Sırala</button></p>
+    <button id="rastgele" disabled>Rastgele Sayı Seç</button>
+    <div id="sayilar"></div>
+
+    <script>
+        const sayilarEl = document.getElementById("sayilar");
+        const siralaEl = document.getElementById("sirala");
+        const rastgeleEl = document.getElementById("rastgele");
+
+        const kullanilmisSayilar = [];
+
+        function yazdir(dizi) {
+  sayilarEl.innerHTML = "";
+  const brEl = document.createElement("br"); 
+  sayilarEl.appendChild(brEl);
+
+  for (let i = 0; i < dizi.length; i++) {
+    const spanEl = document.createElement("span");
+    spanEl.textContent = dizi[i];
+    sayilarEl.appendChild(spanEl);
+    spanEl.style.marginRight = "2px";
+    const boslukEl = document.createTextNode(" ");
+    sayilarEl.appendChild(boslukEl); 
+
+    if ((i + 1) % 10 === 0) {
+      if (i !== 0) {
+        const brEl = document.createElement("br");
+                    sayilarEl.appendChild(brEl);
+      }
+      const brEl2 = document.createElement("br"); 
+      sayilarEl.appendChild(brEl2);
+    }
+  }
+}
+
+        function sirala() {
+            const sayilar = Array.from({ length: 99 }, (_, i) => i + 1);
+            yazdir(sayilar);
+
+            siralaEl.disabled = true;
+            rastgeleEl.disabled = false;
+            kullanilmisSayilar.length = 0;  // Her "Sırala"da kullanılmış sayıları temizle
+        }
+
+        function rastgele() {
+            if (kullanilmisSayilar.length === 99) {
+                alert("Sayıların hepsi seçildi.");
+                return;
+            }
+
+            let rastgeleIndex;
+            do {
+                rastgeleIndex = Math.floor(Math.random() * 99);  
+            } while (kullanilmisSayilar.includes(rastgeleIndex + 1));
+
+            kullanilmisSayilar.push(rastgeleIndex + 1)
+
+            const spans = sayilarEl.querySelectorAll("span"); 
+            const spanEl = spans[rastgeleIndex];
+            spanEl.style.color = "red";
+            spanEl.style.fontWeight = "bold";
+        }
+
+        siralaEl.addEventListener("click", sirala);
+        rastgeleEl.addEventListener("click", rastgele);
+
+        rastgeleEl.disabled = true;     
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="p-4">
+
+    <h1 class="text-2xl font-bold">Pokémon Listesi</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>İsim</th>
+                <th>Tür</th>
+            </tr>
+        </thead>
+      
+        <tbody id="tbody"></tbody> 
+    </table>
+
+
+<script>
+    const pokemons = [
+        { id: 1, name: "Pikachu", type: "Elektirik"},
+        { id: 2, name: "Bulbasaur", type: "Çimen/Zehir"},
+        { id: 3, name: "Charmender", type: "Ateş"},
+    ];
+    const tbody = document.getElementById("tbody");
+    for (let i = 0; i < pokemons.length; i++) {
+      const pokemon = pokemons[i];
+        tbody.innerHTML += `
+        <tr class="hover">
+            <td>${pokemon.id}</td>
+            <td>${pokemon.name}</td>
+            <td>${pokemon.type}</td>`;
+     }
+</script>
+
+    
+</body>
+</html>

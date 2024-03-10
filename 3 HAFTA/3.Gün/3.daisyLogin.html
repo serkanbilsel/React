@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DaisyUI Registration Form Example</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div class="relative flex flex-col justify-center h-screen overflow-hidden">
+      <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+        <h1 class="text-3xl font-semibold text-center text-blue-500">
+          Siliconmade Academy
+        </h1>
+        <form class="space-y-4" onsubmit="return handleSubmit(event)">
+          <div>
+            <label class="label">
+              <span class="text-base label-text">Email</span>
+            </label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email Address"
+              class="w-full input input-bordered input-primary"
+            />
+          </div>
+          <div>
+            <label class="label">
+              <span class="text-base label-text">Password</span>
+            </label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              class="w-full input input-bordered input-primary"
+            />
+          </div>
+          <div>
+            <button class="btn btn-block btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        const name = data.email;
+        const password = data.password;
+        document.write(name);
+        document.write(password);
+      }
+    </script>
+  </body>
+</html>

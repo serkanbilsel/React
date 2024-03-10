@@ -1,0 +1,22 @@
+{
+  "posts": [
+    { "id": "1", "title": "a title", "views": 100 },
+    { "id": "2", "title": "another title", "views": 200 }
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" },
+    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "people": [
+    { "id": 1, "name": "Zafer" },
+    { "id": 1, "name": "Serkan" }
+  ],
+  "pokemons": [
+    { "id": 1, "name": "Pikachu", "type": "Elektrik" },
+    { "id": 2, "name": "Bulbasaur", "type": "Çimen/Zehir" },
+    { "id": 3, "name": "Charmander", "type": "Ateş" }
+  ]
+}

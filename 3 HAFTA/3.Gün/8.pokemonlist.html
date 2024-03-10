@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 class="text-2xl font-bold">Pokémon Listesi</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>İsim</th>
+                <th>Tür</th>
+            </tr>
+        </thead>
+      
+        <tbody id="tbody"></tbody> 
+    </table>
+
+
+
+    <script>
+        fetch("http://localhost:3000/pokemons")
+        .then((response) => response.json())
+        .then((pokemons) => {tabloyuDoldur(pokemons); 
+        });
+
+        function tabloyuDoldur(pokemons) {
+            for (let i = 0; i < pokemons.length; i++) {
+                const pokemon = pokemons[i];
+                tbody.innerHTML += `
+        <tr class="hover">
+            <td>${pokemon.id}</td>
+            <td>${pokemon.name}</td>
+            <td>${pokemon.type}</td>`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

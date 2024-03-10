@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Loto Sayıları:
+    <br>
+    <div id="container">
+
+    </div>
+
+<script>
+    const sayilar = [1, 2, 3, 4, 5, 6];
+    const container = document.getElementById("container");
+
+    for (let i = 0; i < sayilar.length; i++) {
+       container.innerHTML += `<input value="${sayilar[i]}" disabled style="width:50px"></input>`;
+        
+    }
+</script>
+
+</body>
+</html>
