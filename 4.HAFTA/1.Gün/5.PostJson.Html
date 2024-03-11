@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="name" id="name" value="zafer">
+    <button onclick="ekle()">Ekle</button>
+
+    <script>
+        function ekle()
+        {
+            const name = document.getElementById("name").value;
+            const age = 32;
+            fetch("http://localhost:3000/studens", 
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({name: name, age: age}),
+            })
+            .then((res) =>res.json())
+            .then((json) => alert("Eklendi"));
+        }
+    </script>
+    
+</body>
+</html>

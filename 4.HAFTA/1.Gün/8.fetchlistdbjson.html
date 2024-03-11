@@ -1,0 +1,39 @@
+<body>
+    <h1 class="text-2xl font-bold">Liste</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+        fetch("http://localhost:3000/studens")
+            .then((response) => response.json())
+            .then((studens) => {
+                const tbody = document.getElementById("tbody");
+                tabloyuDoldur(studens, tbody);
+            });
+
+        function tabloyuDoldur(studens, tbody) {
+            for (let i = 0; i < studens.length; i++) {
+                const studen = studens[i];
+                const tr = document.createElement("tr");
+                tr.className = "hover";
+                tr.innerHTML = `
+    <td>${studen.id}</td>
+    <td>${studen.name}</td>
+    <td>${studen.age}</td>`;
+
+
+                tbody.appendChild(tr);
+            }
+        }
+    </script>
+</body>

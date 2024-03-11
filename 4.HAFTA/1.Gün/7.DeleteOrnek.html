@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="name" id="id" value="3">
+    <button onclick="sil()">Sil</button>
+
+    <script>
+        function sil()
+        {
+            const id = document.getElementById("id").value;
+           
+            fetch("http://localhost:3000/studens/" + id, 
+            {
+            method: "DELETE",
+            })
+            .then((res) =>res.json())
+            .then((json) => alert("Silindi"));
+        }
+    </script>
+    
+</body>
+</html>
