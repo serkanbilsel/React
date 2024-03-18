@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="name" placeholder="Adınız" />
+    <button onclick="addUser()">Ekle></button>
+
+
+    <ul id="ul"></ul>
+    <button onclick="getAllUsers()">KullanıcılarıGetir</button>
+    <script>
+        const API_URL = "http://localhost:3000";
+
+        function getAllUsers() {
+            fetch(`${API_URL}/users`)
+                .then((res) => res.json())
+                .then((json) => createList(json));
+        }
+
+        function addUser() {
+            const name = document.getElementById("name").value;
+
+            fetch(`${API_URL}/users`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/Json"
+                },
+                body: JSON.stringify({name: name}),
+            })
+                .then((res) => res.json())
+                .then((json) => getAllUsers());
+        }
+
+
+        function createList(json) {
+            const ul = document.getElementById("ul");
+            const liArray = json.map((user) => `<li>${user.name}
+                <button onclick="deleteUser>(${user.id})">Sil</button>
+                </li>`);
+            const usersHtml = liArray.join("");
+            ul.innerHTML = usersHtml;
+        }
+
+
+
+        function deleteUser(id) {
+            fetch(`${API_URL}/users/${id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((json) => getAllUsers());
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <ul id="ul"></ul>
+    <script>
+      const API_URL =
+        "https://my-json-server.typicode.com/ozcanzaferayan/MF101-shoes";
+
+      let shoes = [];
+
+      getAllShoes();
+
+      function getAllShoes() {
+        fetch(`${API_URL}/shoes`)
+          .then((res) => res.json())
+          .then((json) => {
+            shoes = json;
+            createList();
+          });
+      }
+
+      function createList() {
+        const ul = document.getElementById("ul");
+        const liArray = shoes.map(
+          (shoe) => `
+          <li class="inline-block ">
+            <div class="card card-compact w-48 h-[450px] bg-base-100 shadow-xl">
+                <figure><img src="${shoe.image}" alt="Shoes" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">${shoe.title}</h2>
+                    <p>${shoe.subtitle}</p>
+                    <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Satın al</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+        `
+        );
+        const shoesHtml = liArray.join("");
+        ul.innerHTML = shoesHtml;
+      }
+    </script>
+  </body>
+</html>
