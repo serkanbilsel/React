@@ -1,0 +1,23 @@
+.button {
+  all:unset;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: dodgerblue;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+.danger {
+  background-color: tomato;
+}
+
+.warning {
+  background-color: gold;
+  color:black;
+}
+
+.succes {
+  background-color: limegreen;
+}
