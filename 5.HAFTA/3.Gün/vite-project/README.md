@@ -1,8 +1,52 @@
-# React + Vite
+# Nelerden bahsettik?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Kurulum
 
-Currently, two official plugins are available:
+1. pnpm create vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Projenin adı girilir (vite-project)
+- Framework seçilir (React)
+- Variant seçilir (JavaScript + SWC)
+- Tamamlanınca 2. adıma geçilir
+
+2. cd vite-project
+
+- Proje klasörüne girilir
+
+3. pnpm install
+
+- Proje bağımlılıkları yüklenir
+
+4. pnpm dev
+
+## Counter Örneği
+
+- state hem veri tutar hem de değişiklikleri izler
+- state'te olan bir değişiklik, arayüz güncellemesini tetikler
+- state kullanmasaydık, normal bir değişkenin değişmesi arayüzü güncellemezdi
+- useState(1) denildiğinde bu çağrım bir array geri döndürür
+
+```js
+const state = useState(1);
+const deger = state[0];
+const setDeger = state[1];
+// Daha basit yazmak için
+// Array destructuring denir
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+const [deger, setDeger] = useState(1);
+```
+
+- onClick metodunda handleClick fonksiyonu çağrılır
+- onclick yerine onClick olmasının sebebi sentetik event oluşturmak. React'te eventler camelCase olarak yazılır. Tarayıcılar arasındaki uyuşmazlıkları gidermek için React, Sentetik event kullanımını tercih eder.
+
+## CSS-in-JS
+
+- CSS kodlarını JS dosyası içerisinde yazmak
+- Bir JSON objesi gibi düşünülebilir
+- Bunun yerine CSS dosyaların da kullanılabilir
+
+```jsx
+import "./App.css";
+
+<button className="myButtonClass">Hello</button>;
+```
