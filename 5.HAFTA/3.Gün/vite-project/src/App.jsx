@@ -1,45 +1,39 @@
 import React, { useState } from 'react';
 
-const App = () => {
-  const [sonuc, setSonuc] = useState('');
+const EhliyetHesaplayici = () => {
+  const [dogumYili, setDogumYili] = useState('');
+  const [ehliyetDurumu, setEhliyetDurumu] = useState('');
+  const [hata, setHata] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    const strSonuc = JSON.stringify(data, null, 2);
-    setSonuc(strSonuc);
+  const hesapla = () => {
+    if (!dogumYili.trim()) {
+      alert('Bilgilerinizi kontrol ediniz.');
+      return;
+    }
+
+    const yas = new Date().getFullYear() - parseInt(dogumYili);
+
+    if (yas >= 18) {
+      setEhliyetDurumu('Ehliyet alabilir');
+    } else {
+      setEhliyetDurumu('Ehliyet alamaz');
+    }
+    setHata('');
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        gap: 8,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-      }}
-    >
-      <label>Adınız :</label>
-      <input type="text" name="ad" placeholder="Adınız" />
-      <div>
-        <label>Cinsiyet :</label>
-
-        <div>
-          <input type="radio" id="male" name="gender" value={"male"} />
-          <label htmlFor="male">Erkek</label>
-        </div>
-        <div>
-          <input type="radio" id="female" name="cinsiyet" value={"female"} />
-          <label htmlFor="female">Kadın</label>
-        </div>
-      </div>
-      <button type="submit" value={"JSON Oluştur"}>Gönder</button>
-      <span>{sonuc}</span>
-    </form>
+    <div>
+      <label>
+        Doğum Yılı:
+        <input type="number" value={dogumYili} onChange={(e) => setDogumYili(e.target.value)} />
+      </label>
+      <br />
+      <button onClick={hesapla}>Hesapla</button>
+      <br />
+      {ehliyetDurumu && <p>{ehliyetDurumu}</p>}
+      {hata && <p>{hata}</p>}
+    </div>
   );
 };
 
-export default App;
+export default EhliyetHesaplayici;
